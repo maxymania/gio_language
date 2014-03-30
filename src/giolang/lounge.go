@@ -13,6 +13,8 @@ func RTFunc(f Future,m MsgObject) (Future,bool) {
 			case 2:
 				if m.Params[0].Wait().Bool() {
 					return m.Params[1].Wait().CodeBlock().Execute(f),true
+				} else {
+					return Nil{},true
 				}
 			case 3:
 				if m.Params[0].Wait().Bool() {
